@@ -37,7 +37,7 @@ function removeToDo(item) {
 }
 
 
-// Function For marking Mark completed , basically it will match array of object subcardHolder and inside that match ID and Mark that as completed  and marked complete to 
+// Function For marking Mark completed , basically it will match array of object subcardHolder and inside that match ID and Mark that as completed 
 function handleMarkCompleted(markElement) {
   markElement.parentNode.setAttribute("class", "card-item card-item-checked");
   let grandParentId =
@@ -65,6 +65,7 @@ function handleMarkCompleted(markElement) {
 // 2.we will call handleAddCloseToggle Function (just beacuse pop-up is rendering , and we want to close that)
 function addListItemToIndividualCard() {
   let subListHeading = document.getElementById("subListHeading").value;
+  if(subListHeading!==""){
   let list = selectedIndividualCard.parentNode.parentNode.childNodes[2];
   let selectedIndividualCardParentKey =
     selectedIndividualCard.parentNode.parentNode.getAttribute("data-key");
@@ -85,7 +86,7 @@ function addListItemToIndividualCard() {
     }
   }
   handleAddCloseToggle("popAddItem");
-  list.append(node);
+  list.append(node);}
 }
 
 
@@ -143,6 +144,7 @@ function renderAllCardHolder() {
 function addTodo() {
   handleAddCloseToggle("pop");
   const cardInputText = document.getElementById("listHeading").value;
+  if(cardInputText!==""){
   allCardHolder.push({
     cardInputText,
     subCardHolder: [],
@@ -150,4 +152,5 @@ function addTodo() {
   });
   checkEmptyList();
   renderAllCardHolder();
+}
 }
