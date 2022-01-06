@@ -37,7 +37,7 @@ function removeToDo(item) {
 }
 
 
-// Function For marking Mark completed , basically it will match array of object subcardHolder and inside that match ID and Mark that as completed  and marked complete to 
+// Function For marking Mark completed , basically it will match array of object subcardHolder and inside that match ID and Mark that as completed  
 function handleMarkCompleted(markElement) {
   markElement.parentNode.setAttribute("class", "card-item card-item-checked");
   let grandParentId =
