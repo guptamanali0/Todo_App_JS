@@ -26,12 +26,15 @@ function removeToDo(item) {
   let handleRemoveKey = item.parentNode.parentNode;
   const cardToRemoveKey = handleRemoveKey.getAttribute("data-key");
   // allCardHolder.splice()
+  console.log(cardToRemoveKey,'CARD TO REMOVE');
+  console.log();
   for (let data = 0; data < allCardHolder.length; data++) {
     if (allCardHolder[data].id == cardToRemoveKey) {
       allCardHolder.splice(data, 1);
     }
     // remove child from node as well ;
     handleRemoveKey.parentNode.removeChild(handleRemoveKey);
+    console.log(allCardHolder,'ALL CARD HOLDER');
     checkEmptyList();
   }
 }
@@ -131,8 +134,9 @@ function renderAllCardHolder() {
       let renderClass = holdText.marked
         ? ""
         : '<button class = "markDone" onclick="handleMarkCompleted(this)">Mark Done</button>';
-      const listNode = document.createElement("li");
+      let listNode = document.createElement("li");
       listNode.setAttribute("class", classToPut);
+      listNode.setAttribute("data-key", holdText.id);
       listNode.innerHTML = `${holdText.name} ${renderClass}`;
       individualCard.childNodes[2].append(listNode);
     }
