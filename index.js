@@ -26,15 +26,12 @@ function removeToDo(item) {
   let handleRemoveKey = item.parentNode.parentNode;
   const cardToRemoveKey = handleRemoveKey.getAttribute("data-key");
   // allCardHolder.splice()
-  console.log(cardToRemoveKey,'CARD TO REMOVE');
-  console.log();
+   // remove child from node as well ;
+    handleRemoveKey.parentNode.removeChild(handleRemoveKey);
   for (let data = 0; data < allCardHolder.length; data++) {
     if (allCardHolder[data].id == cardToRemoveKey) {
       allCardHolder.splice(data, 1);
     }
-    // remove child from node as well ;
-    handleRemoveKey.parentNode.removeChild(handleRemoveKey);
-    console.log(allCardHolder,'ALL CARD HOLDER');
     checkEmptyList();
   }
 }
