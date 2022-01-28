@@ -25,9 +25,8 @@ function handleAddCloseToggle(id) {
 function removeToDo(item) {
   let handleRemoveKey = item.parentNode.parentNode;
   const cardToRemoveKey = handleRemoveKey.getAttribute("data-key");
-  // allCardHolder.splice()
-   // remove child from node as well ;
-    handleRemoveKey.parentNode.removeChild(handleRemoveKey);
+  // remove child from node as well 
+  handleRemoveKey.parentNode.removeChild(handleRemoveKey);
   for (let data = 0; data < allCardHolder.length; data++) {
     if (allCardHolder[data].id == cardToRemoveKey) {
       allCardHolder.splice(data, 1);
